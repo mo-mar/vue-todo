@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="todo-list">
     <h3>Go ahead, add one</h3>
     <form>
       <label for="todo-text">
@@ -8,23 +8,21 @@
       <button :disabled="!text" @click.prevent="addTodo" type="submit">
         Submit
       </button>
-      <div>
-        <ul v-for="todo in todos" v-bind:key="todo.id">
-          <li>
-            <span v-bind:class="{ completed: todo.completed }">{{
-              todo.text
-            }}</span>
-            <button @click.prevent="removeTodo(todo.id)">X</button>
-            <button @click.prevent="completeTodo(todo.id)">Complete</button>
-          </li>
-        </ul>
-      </div>
     </form>
+    <ul v-for="todo in todos" v-bind:key="todo.id">
+      <TodoItem
+        v-bind:todoItem="todo"
+        v-on:remove-todo="removeTodo($event)"
+        v-on:complete-todo="completeTodo($event)"
+      >
+      </TodoItem>
+    </ul>
   </div>
 </template>
 
 <script>
 import { v4 as uuidv4 } from 'uuid'
+import TodoItem from './TodoItem'
 
 export default {
   data: function () {
@@ -32,6 +30,9 @@ export default {
       todos: [],
       text: '',
     }
+  },
+  components: {
+    TodoItem,
   },
   methods: {
     addTodo: function () {
@@ -60,11 +61,10 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.todo-list {
   width: 100%;
-}
-
-.completed {
-  text-decoration: line-through;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
