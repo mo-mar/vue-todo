@@ -50,7 +50,7 @@ export default {
 }
 
 .todo-information {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .todo-text {
