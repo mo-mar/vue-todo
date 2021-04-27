@@ -29,6 +29,15 @@ export default {
 </script>
 
 <style>
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,5 +45,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   padding: 0.4rem 1rem;
+  background: #6899b13d;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
 }
 </style>

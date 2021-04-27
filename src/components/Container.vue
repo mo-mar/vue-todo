@@ -18,8 +18,9 @@ export default {}
 .container {
   width: 100%;
   max-width: 1280px;
-  margin: 0 auto;
   display: grid;
+  margin: 0 auto;
+  padding: 1rem;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   height: 100vh;

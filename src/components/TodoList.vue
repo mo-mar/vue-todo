@@ -1,6 +1,6 @@
 <template>
   <div class="todo-list">
-    <h3>Go ahead, add one</h3>
+    <h2>Go ahead, add one</h2>
     <form>
       <label for="todo-text">
         <input id="todo-text" v-model="text" type="text"
@@ -9,9 +9,12 @@
         Submit
       </button>
     </form>
-    <ul v-for="todo in todos" v-bind:key="todo.id">
+    <ul>
       <TodoItem
+        v-for="(todo, index) in todos"
+        v-bind:key="todo.id"
         v-bind:todoItem="todo"
+        v-bind:index="index"
         v-on:remove-todo="removeTodo($event)"
         v-on:complete-todo="completeTodo($event)"
       >
@@ -66,5 +69,29 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 600px;
+}
+
+ul {
+  width: 50%;
+  overflow-y: auto;
+}
+
+.todo-list form {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-list form input {
+  margin-bottom: 0.5rem;
+  padding: 0.7rem;
+  text-align: center;
+}
+
+.todo-list form button {
+  border-radius: 2px 8px 2px;
+  height: 30px;
 }
 </style>
