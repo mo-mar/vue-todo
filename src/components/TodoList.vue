@@ -57,7 +57,7 @@ export default {
     },
     completeTodo: function (id) {
       let currentTodo = this.todos.find((todo) => todo.id === id)
-      currentTodo.completed = true
+      currentTodo.completed = !currentTodo.completed
     },
   },
 }

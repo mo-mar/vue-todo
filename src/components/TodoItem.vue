@@ -1,11 +1,22 @@
 <template>
   <li class="todo-item">
     <div v-bind:class="{ completed: todoItem.completed }">
-      <span>{{ index + 1 }}. </span>{{ todoItem.text }}
+      <div class="todo-information">
+        <span>{{ index + 1 }}. </span
+        ><span class="todo-text">{{ todoItem.text }}</span>
+      </div>
     </div>
     <div class="todo-item__actions">
       <button @click.prevent="removeTodo(todoItem.id)">&#x2715;</button>
-      <button @click.prevent="completeTodo(todoItem.id)">Complete</button>
+      <button
+        v-if="!todoItem.completed"
+        @click.prevent="completeTodo(todoItem.id)"
+      >
+        Complete
+      </button>
+      <button v-else @click.prevent="completeTodo(todoItem.id)">
+        Uncomplete
+      </button>
     </div>
   </li>
 </template>
@@ -35,8 +46,15 @@ export default {
   margin-bottom: 0.5rem;
   background: white;
   border: 1px solid black;
-  font-size: 1rem;
   width: 100%;
+}
+
+.todo-information {
+  font-size: 1.5rem;
+}
+
+.todo-text {
+  width: 50%;
 }
 
 .todo-item__actions {
