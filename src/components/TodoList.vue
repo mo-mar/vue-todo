@@ -5,7 +5,12 @@
       <label for="todo-text">
         <input id="todo-text" v-model="text" type="text"
       /></label>
-      <button :disabled="!text" @click.prevent="addTodo" type="submit">
+      <button
+        class="submit-button"
+        :disabled="!text"
+        @click.prevent="addTodo"
+        type="submit"
+      >
         Submit
       </button>
     </form>
@@ -84,14 +89,17 @@ ul {
   align-items: center;
 }
 
+.submit-button {
+  height: 40px;
+  padding: 0.8rem 1rem;
+  vertical-align: middle;
+  border-radius: 2px 8px 2px;
+  height: 45px;
+}
+
 .todo-list form input {
   margin-bottom: 0.5rem;
   padding: 0.7rem;
   text-align: center;
-}
-
-.todo-list form button {
-  border-radius: 2px 8px 2px;
-  height: 30px;
 }
 </style>
