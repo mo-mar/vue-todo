@@ -5,7 +5,9 @@
         <h1>Vue Todo</h1>
       </template>
       <template v-slot:body>
-        <TodoList></TodoList>
+        <main>
+          <TodoList></TodoList>
+        </main>
       </template>
       <template v-slot:footer>
         <p>Built by Mohamed Omar</p>
